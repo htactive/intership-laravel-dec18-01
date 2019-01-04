@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
 
 class CategoriesTableSeeder extends Seeder
 {
@@ -11,10 +13,15 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB:table('caregories')->insert([
-            'categoryname' => str_random(10),
-            'describe' => str_random(16),
-            'stats' => integerValue(1),
-    ]);
+        $faker = Faker::create();
+
+        for ($i=0; $i<10; $i++)
+        {
+            DB::table('categories')->insert([
+                'categoryname' => str_random(10),
+                'describe' => str_random(10).'@gmail.com',
+                'status' => true,
+            ]);
+        }
     }
 }

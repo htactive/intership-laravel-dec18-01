@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>|| Blog</title>
+    <title>@yield('title') - Blog</title>
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{asset('backend/plugins/font-awesome/css/font-awesome.min.css')}}">
@@ -16,16 +16,6 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to to the body tag
-to get the desired effect
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
     <!-- Navbar -->
@@ -42,7 +32,7 @@ to get the desired effect
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Dashboard v3</h1>
+                        <h1 class="m-0 text-dark">Admin</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">

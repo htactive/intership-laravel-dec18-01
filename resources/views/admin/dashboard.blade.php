@@ -13,40 +13,72 @@
         <li class="breadcrumb-item">Dashboard</li>
     </ul>
 </div>
+
 <div class="row">
-    <div class="col-md-6 col-lg-3">
-    <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
-        <div class="info">
-        <h4>Users</h4>
-        <p><b>5</b></p>
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box">
+            <span class="info-box-icon bg-info elevation-1"><i class="fa fa-gear"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">CPU Traffic</span>
+                <span class="info-box-number">
+                    10
+                    <small>%</small>
+                </span>
+            </div>
+            <!-- /.info-box-content -->
         </div>
+        <!-- /.info-box -->
     </div>
-    </div>
-    <div class="col-md-6 col-lg-3">
-    <div class="widget-small info coloured-icon"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
-        <div class="info">
-        <h4>Likes</h4>
-        <p><b>25</b></p>
+    <!-- /.col -->
+
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+            <span class="info-box-icon bg-danger elevation-1"><i class="fa fa-google-plus"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Likes</span>
+                <span class="info-box-number">41,410</span>
+            </div>
+            <!-- /.info-box-content -->
         </div>
+        <!-- /.info-box -->
     </div>
+    <!-- /.col -->
+
+    <!-- fix for small devices only -->
+    <div class="clearfix hidden-md-up">
     </div>
-    <div class="col-md-6 col-lg-3">
-    <div class="widget-small warning coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
-        <div class="info">
-        <h4>Uploades</h4>
-        <p><b>10</b></p>
+
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+            <span class="info-box-icon bg-success elevation-1"><i class="fa fa-shopping-cart"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Sales</span>
+                <span class="info-box-number">760</span>
+            </div>
+            <!-- /.info-box-content -->
         </div>
+        <!-- /.info-box -->
     </div>
-    </div>
-    <div class="col-md-6 col-lg-3">
-    <div class="widget-small danger coloured-icon"><i class="icon fa fa-star fa-3x"></i>
-        <div class="info">
-        <h4>Stars</h4>
-        <p><b>500</b></p>
+    <!-- /.col -->
+
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+            <span class="info-box-icon bg-warning elevation-1"><i class="fa fa-users"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">New Members</span>
+                <span class="info-box-number">2,000</span>
+            </div>
+            <!-- /.info-box-content -->
         </div>
+        <!-- /.info-box -->
     </div>
-    </div>
+    <!-- /.col -->
 </div>
+<!-- /.row -->
 @endsection
 
 @push('styles')
