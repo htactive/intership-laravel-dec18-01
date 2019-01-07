@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('title', 'Categories')
+@section('title', 'Posts')
 
 @section('content')
 <div class="app-title">
@@ -8,14 +8,14 @@
         <li class="breadcrumb-item">
             <a href="{{route('dashboard')}}"><i class="fa fa-home fa-lg"></i></a>
         </li>
-        <li class="breadcrumb-item">Caterogies</li>
+        <li class="breadcrumb-item">Posts</li>
     </ul>
 </div>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-            <a href="{{route('categories.create')}}" class="btn btn-success">Thêm Posts</a>
+            <a href="{{route('categories.create')}}" class="btn btn-success">Thêm Post</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -23,40 +23,48 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Category Name</th>
-                      <th>Describe</th>
+                      <th>Title</th>
+                      <th>Like</th>
+                      <th>Time Created</th>
+                      <th>Caterogy</th>
                       <th class="w-10">Status</th>
                       <th class="w-17">Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($categories as $key => $category)
+                    @foreach ($posts as $key => $post)
                         <tr>
-                          <td>{{ $category->id }}</td>
+                          <td>{{ $post->id }}</td>
                           <td>
-                            {{ $category->categoryname }}
+                            {{ $post->title }}
                           </td>
                           <td>
-                            {{ $category->describe }}
+                            {{ $post->like }}
                           </td>
                           <td>
-                            @if($category->status)
+                            {{ $post->created_at }}
+                          </td>
+                          <td>
+                          {{ App\Post::find($post->id)->category->categoryname }}
+                          </td>
+                          <td>
+                            @if($post->status)
                                 <span class="badge badge-success p5">Hiện</span>
                             @else
                                 <span class="badge badge-default p5">Ẩn</span>
                             @endif
                           </td>
                           <td>
-                            <a href="{{route('categories.show', $category->slug)}}" class="btn btn-info">
+                            <a href="{{route('posts.show', $post->id)}}" class="btn btn-info">
                                 <i class="fa fa-eye"></i>
                             </a>
-                            <a href="{{route('categories.edit', $category->id)}}" class="btn btn-warning">
+                            <a href="{{route('posts.edit', $post->id)}}" class="btn btn-warning">
                                 <i class="fa fa-pencil"></i>
                             </a>
-                            <a data-id={{$category->id}} href="{{ route('categories.destroy', $category->id) }}" class="btn btn-danger delete">
+                            <a data-id={{$post->id}} href="{{ route('posts.destroy', $post->id) }}" class="btn btn-danger delete">
                                 <i class="fa fa-trash"></i>
                             </a>
-                            <form id="delete-form-{{$category->id}}" action="{{route('categories.destroy', $category->id)}}" method="post">
+                            <form id="delete-form-{{$post->id}}" action="{{route('posts.destroy', $post->id)}}" method="post">
                                 @csrf
                                 @method('delete')
                             </form>
@@ -65,7 +73,7 @@
                     @endforeach
                   </tbody>
                </table>
-                {{ $categories->links() }}
+                {{ $posts->links() }}
             </div>
             <!-- /.card-body -->
         </div>

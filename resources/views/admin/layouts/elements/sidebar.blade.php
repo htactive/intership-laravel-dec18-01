@@ -88,9 +88,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('categories.index')}}" class="nav-link {{Request::is('admin/categories*') ? 'active' : ''}}">
+                    <a href="{{route('posts.index')}}" class="nav-link {{Request::is('admin/posts*') ? 'active' : ''}}">
                         <i class="nav-icon fa fa-circle-o text-danger"></i>
-                        <p class="text">Users</p>
+                        <p class="text">Posts</p>
                     </a>
                 </li>
             </ul>

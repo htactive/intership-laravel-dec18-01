@@ -15,11 +15,13 @@ class CategoriesTableSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        for ($i=0; $i<10; $i++)
+        for ($i=1; $i<11; $i++)
         {
+            $categoryname = 'ten danh muc' . ' ' . $i;
             DB::table('categories')->insert([
-                'categoryname' => str_random(10),
-                'describe' => str_random(10).'@gmail.com',
+                'categoryname' => $categoryname,
+                'describe' => 'mo ta'.$i,
+                'slug' => str_slug($categoryname),
                 'status' => true,
             ]);
         }

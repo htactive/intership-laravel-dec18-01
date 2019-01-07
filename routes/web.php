@@ -8,5 +8,6 @@ Route::group(['prefix'=>'admin/'],function(){
         return redirect(route('dashboard'));
     });
     Route::resource('/categories','Admin\CategoryController');
+    Route::resource('/posts','Admin\PostController');
 });
 
