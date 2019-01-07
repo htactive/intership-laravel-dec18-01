@@ -93,6 +93,12 @@
                         <p class="text">Posts</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('users.index')}}" class="nav-link {{Request::is('admin/users*') ? 'active' : ''}}">
+                        <i class="nav-icon fa fa-circle-o text-danger"></i>
+                        <p class="text">Users</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('title', 'Posts')
+@section('title', 'Users')
 
 @section('content')
 <div class="app-title">
@@ -8,14 +8,14 @@
         <li class="breadcrumb-item">
             <a href="{{route('dashboard')}}"><i class="fa fa-home fa-lg"></i></a>
         </li>
-        <li class="breadcrumb-item">Posts</li>
+        <li class="breadcrumb-item">Users</li>
     </ul>
 </div>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-            <a href="{{route('categories.create')}}" class="btn btn-success">Thêm Post</a>
+            <a href="{{route('categories.create')}}" class="btn btn-success">Thêm User</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -23,48 +23,52 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Title</th>
-                      <th>Like</th>
-                      <th>Time Created</th>
-                      <th>Caterogy</th>
+                      <th>User Name</th>
+                      <th>Email</th>
+                      <th>Display Name</th>
+                      <th>Number of Posts</th>
+                      <th>Role</th>
                       <th class="w-10">Status</th>
                       <th class="w-17">Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($posts as $key => $post)
+                    @foreach ($users as $key => $user)
                         <tr>
-                          <td>{{ $post->id }}</td>
+                          <td>{{ $user->id }}</td>
                           <td>
-                            {{ $post->title }}
+                            {{ $user->username }}
                           </td>
                           <td>
-                            {{ $post->like }}
+                            {{ $user->email }}
                           </td>
                           <td>
-                            {{ $post->created_at }}
+                            {{ $user->displayname }}
                           </td>
                           <td>
-                          {{ $post->category->categoryname }}
+                            {{ $user->posts->count() }}
                           </td>
                           <td>
-                            @if($post->status)
-                                <span class="badge badge-success p5">Hiện</span>
+                          {{ $user->role }}
+                          </td>
+                          <td>
+                            @if($user->status)
+                                <span class="badge badge-success p5">Open</span>
                             @else
-                                <span class="badge badge-default p5">Ẩn</span>
+                                <span class="badge badge-default p5">Block</span>
                             @endif
                           </td>
                           <td>
-                            <a href="{{route('posts.show', $post->id)}}" class="btn btn-info">
+                            <a href="{{route('users.show', $user->id)}}" class="btn btn-info">
                                 <i class="fa fa-eye"></i>
                             </a>
-                            <a href="{{route('posts.edit', $post->id)}}" class="btn btn-warning">
+                            <a href="{{route('users.edit', $user->id)}}" class="btn btn-warning">
                                 <i class="fa fa-pencil"></i>
                             </a>
-                            <a data-id={{$post->id}} href="{{ route('posts.destroy', $post->id) }}" class="btn btn-danger delete">
+                            <a data-id={{$user->id}} href="{{ route('users.destroy', $user->id) }}" class="btn btn-danger delete">
                                 <i class="fa fa-trash"></i>
                             </a>
-                            <form id="delete-form-{{$post->id}}" action="{{route('posts.destroy', $post->id)}}" method="post">
+                            <form id="delete-form-{{$user->id}}" action="{{route('users.destroy', $user->id)}}" method="post">
                                 @csrf
                                 @method('delete')
                             </form>
@@ -73,7 +77,7 @@
                     @endforeach
                   </tbody>
                </table>
-                {{ $posts->links() }}
+                {{ $users->links() }}
             </div>
             <!-- /.card-body -->
         </div>

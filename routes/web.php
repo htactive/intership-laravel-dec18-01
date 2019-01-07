@@ -9,5 +9,6 @@ Route::group(['prefix'=>'admin/'],function(){
     });
     Route::resource('/categories','Admin\CategoryController');
     Route::resource('/posts','Admin\PostController');
+    Route::resource('/users','Admin\UserController');
 });
 

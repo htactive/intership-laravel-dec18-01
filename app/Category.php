@@ -9,4 +9,9 @@ class Category extends Model
 {
     protected $table = "categories";
     protected $fillable = ['categoryname','describe','status'];
+
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
 }

@@ -25,6 +25,7 @@
                       <th>ID</th>
                       <th>Category Name</th>
                       <th>Describe</th>
+                      <th>Number of Post</th>
                       <th class="w-10">Status</th>
                       <th class="w-17">Action</th>
                     </tr>
@@ -38,6 +39,9 @@
                           </td>
                           <td>
                             {{ $category->describe }}
+                          </td>
+                          <td>
+                            {{ $category->posts->count() }}
                           </td>
                           <td>
                             @if($category->status)
