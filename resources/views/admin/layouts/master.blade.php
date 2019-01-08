@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{asset('backend/dist/css/adminlte.min.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    @stack('styles')
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -65,5 +66,6 @@
 <script src="{{asset('backend/plugins/chart.js/Chart.min.js')}}"></script>
 <script src="{{asset('backend/dist/js/demo.js')}}"></script>
 <script src="{{asset('backend/dist/js/pages/dashboard3.js')}}"></script>
+@stack('scripts')
 </body>
 </html>

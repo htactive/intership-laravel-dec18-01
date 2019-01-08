@@ -68,6 +68,7 @@ class CategoryController extends Controller
             'message' => 'Add category successful!',
             'alert-type' => 'success'
         );
+
         return redirect()->route('categories.index')->with($notification);
     }
 
@@ -113,6 +114,19 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        if($category->posts->count() > 0){
+            $notification = array(
+                'message' => 'You can not delete a category that has posts filed in it',
+                'alert-type' => 'warning'
+            );
+            return redirect()->route('categories.index')->with($notification);
+        }
+        Category::where('id', $category->id)->delete();
+        $notification = array(
+            'message' => 'Delete category successful!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('categories.index')->with($notification);
     }
 }

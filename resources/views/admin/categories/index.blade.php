@@ -60,10 +60,12 @@
                             <a data-id={{$category->id}} href="{{ route('categories.destroy', $category->id) }}" class="btn btn-danger delete">
                                 <i class="fa fa-trash"></i>
                             </a>
-                            <form id="delete-form-{{$category->id}}" action="{{route('categories.destroy', $category->id)}}" method="post">
-                                @csrf
-                                @method('delete')
-                            </form>
+                            {!!Form::open([
+                                        'route' => ['categories.destroy', $category->id],
+                                        'id' => 'delete-form-' . $category->id,
+                                        'method' => 'DELETE'
+                                    ])
+                            !!}{!! Form::close() !!}
                           </td>
                         </tr>
                     @endforeach
@@ -86,6 +88,7 @@
 
 @push('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
    @if(Session::has('message'))
 		var type="{{Session::get('alert-type','info')}}"
@@ -104,7 +107,6 @@
 		        break;
 		}
 	@endif
-
 </script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
