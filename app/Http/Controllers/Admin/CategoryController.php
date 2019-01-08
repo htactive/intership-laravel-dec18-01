@@ -27,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -38,7 +38,37 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this -> validate($request,[
+            'categoryname' => 'required|unique:categories',
+            'describe' => 'required',
+        ],[
+            'categoryname.required' => 'The Category Name field is required',
+            'categoryname.unique' => 'The Category Name field already exist',
+
+            'describe.required' => 'The Describe field is required'
+        ]);
+        $categoryname = $request['categoryname'];
+        $describe = $request['describe'];
+        $status = $request['status'];
+
+        $cate = new Category;
+
+        $cate['categoryname'] = $categoryname;
+        $cate['describe'] = $describe;
+        $cate['slug'] = str_slug($categoryname);
+        if($status == true){
+            $cate['status'] = $status;
+        }else {
+            $cate['status'] = false;
+        }
+
+        $cate -> save();
+
+        $notification = array(
+            'message' => 'Add category successful!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('categories.index')->with($notification);
     }
 
     /**
