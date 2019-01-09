@@ -40,12 +40,13 @@ class CategoryController extends Controller
     {
         $this -> validate($request,[
             'categoryname' => 'required|unique:categories',
-            'describe' => 'required',
+            'describe' => 'required|max:250',
         ],[
             'categoryname.required' => 'The Category Name field is required',
             'categoryname.unique' => 'The Category Name field already exist',
 
-            'describe.required' => 'The Describe field is required'
+            'describe.required' => 'The Describe field is required',
+            'describe.max' => 'Maximum of 250 characters',
         ]);
         $categoryname = $request['categoryname'];
         $describe = $request['describe'];
@@ -80,7 +81,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $posts = $category->posts;
+        return view('admin.categories.show',['posts'=>$posts,'category'=>$category]);
     }
 
     /**

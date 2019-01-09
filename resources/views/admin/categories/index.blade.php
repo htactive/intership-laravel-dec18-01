@@ -41,7 +41,7 @@
                             {{ $category->describe }}
                           </td>
                           <td>
-                            {{ $category->posts->count() }}
+                            {{ $category->posts()->count() }}
                           </td>
                           <td>
                             @if($category->status)
@@ -51,7 +51,7 @@
                             @endif
                           </td>
                           <td>
-                            <a href="{{route('categories.show', $category->slug)}}" class="btn btn-info">
+                            <a href="{{route('categories.show', $category->id)}}" class="btn btn-info">
                                 <i class="fa fa-eye"></i>
                             </a>
                             <a href="{{route('categories.edit', $category->id)}}" class="btn btn-warning">

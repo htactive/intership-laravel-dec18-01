@@ -15,7 +15,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-            <a href="{{route('categories.create')}}" class="btn btn-success">Thêm User</a>
+            <a href="{{route('categories.create')}}" class="btn btn-success">Add User</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
