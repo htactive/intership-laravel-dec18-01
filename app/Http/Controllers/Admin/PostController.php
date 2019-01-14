@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -27,7 +28,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('admin.posts.create', ['categories' => $categories]);
     }
 
     /**
@@ -38,7 +40,43 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this -> validate($request,[
+            'title' => 'required|unique:posts',
+            'content' => 'required|max:1000',
+        ],[
+            'title.required' => 'The Title field is required',
+            'title.unique' => 'The Title field already exist',
+
+            'content.required' => 'The Content field is required',
+            'content.max' => 'Maximum of 250 characters',
+        ]);
+
+        $title = $request['title'];
+        $category = $request['category'];
+        $content = $request['content'];
+        $status = $request['status'];
+
+        $post = new Post;
+
+        $post['title'] = $title;
+        $post['content'] = $content;
+        $post['category_id'] = $category;
+        $post['user_id'] = 1;
+        if($status == true){
+            $post['status'] = $status;
+        }else {
+            $post['status'] = false;
+        }
+
+
+        $post -> save();
+
+        $notification = array(
+            'message' => 'Add Post successful!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('posts.index')->with($notification);
     }
 
     /**
