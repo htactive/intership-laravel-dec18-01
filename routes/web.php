@@ -9,6 +9,7 @@ Route::group(['prefix'=>'admin/'],function(){
     });
     Route::resource('/categories','Admin\CategoryController');
     Route::resource('/posts','Admin\PostController');
+    Route::post('/posts/status/{id}', 'Admin\PostController@status')->name('posts.status');
     Route::resource('/users','Admin\UserController');
 });
 

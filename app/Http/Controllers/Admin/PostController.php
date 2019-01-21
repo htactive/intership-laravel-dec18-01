@@ -117,6 +117,23 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
+    public function status($id)
+    {
+        $postn = Post::find($id);
+        if($postn->status == true)
+        {
+            $postn->status = false;
+        }
+        else{
+            $postn->status = true;
+        }
+        $postn->save();
+        $notification = array(
+            'message' => 'Change status successful!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('posts.index')->with($notification);
+    }
     public function destroy(Post $post)
     {
         Post::where('id', $post->id)->delete();

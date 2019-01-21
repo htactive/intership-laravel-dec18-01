@@ -45,14 +45,21 @@
                             {{ $post->created_at }}
                           </td>
                           <td>
-                          {{ $post->category->categoryname }}
+                            {{ $post->category->categoryname }}
                           </td>
                           <td>
                             @if($post->status)
-                                <span class="badge badge-success p5">Show</span>
+                                <a href="{{route('posts.status', $post->id)}}" data-id="{{$post->id}}" class="status badge badge-success p-10">Show</a>
                             @else
-                                <span class="badge badge-default p5">Hide</span>
+                                <a href="{{route('posts.status', $post->id)}}" data-id="{{$post->id}}" class="status badge badge-danger p-10">Hide</a>
                             @endif
+
+                            {!!Form::open([
+                                        'route' => ['posts.status', $post->id],
+                                        'id' => 'status-form-' . $post->id
+                                    ])
+                            !!}
+                            {!! Form::close() !!}
                           </td>
                           <td>
                             <a href="{{route('posts.show', $post->id)}}" class="btn btn-info">
@@ -69,7 +76,8 @@
                                         'id' => 'delete-form-' . $post->id,
                                         'method' => 'DELETE'
                                     ])
-                            !!}{!! Form::close() !!}
+                            !!}
+                            {!! Form::close() !!}
                           </td>
                         </tr>
                     @endforeach
