@@ -96,6 +96,18 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        if($user->posts->count() > 0){
+            $notification = array(
+                'message' => 'You can not delete a user that has posts filed. You can block user.',
+                'alert-type' => 'warning'
+            );
+            return redirect()->route('users.index')->with($notification);
+        }
+        User::where('id', $user->id)->delete();
+        $notification = array(
+            'message' => 'Delete user successful!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('users.index')->with($notification);
     }
 }
