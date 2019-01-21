@@ -20,14 +20,14 @@
             <div class="card-header">
                 <a href="{{route('posts.index')}}" class="btn btn-secondary">Back</a>
             </div>
-            @if ($errors->any())
-                @foreach ($errors->all() as $error)
-                    <div class="alert alert-danger">
-                        <span>{{ $error }}</span>
-                    </div>
-                @endforeach
-            @endif
             {!! Form::open(['route' => 'posts.store', 'class' => 'form-group col-md-12']) !!}
+                @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger">
+                            <span>{{ $error }}</span>
+                        </div>
+                    @endforeach
+                @endif
                 <div class="form-group" >
                     {!! Form::label('label1', 'Title', ['class' => 'control-label']) !!}
                     {!! Form::text('title', '', ['class' => 'form-control']) !!}
@@ -42,15 +42,17 @@
                 </div>
                 <div class="form-group">
                         <div class="form-check">
-                          {!! Form::radio('status', true, true) !!}
-                          {!! Form::label('label3', 'Open') !!}
-                          {!! Form::radio('status', false) !!}
-                          {!! Form::label('label4', 'Hide') !!}
+                            <label class="radio" style="padding-right:15px">
+                                {!! Form::radio('status', true, true) !!} Show
+                            </label>
+                            <label class="radio">
+                                {!! Form::radio('status', true) !!} Hide
+                            </label>
                         </div>
                     </div>
                 <div class="col-12">
                         {{ Form::button(
-                            '<i class="fa fa-check-circle"></i>Create',
+                            '<i class="fa fa-check-circle" style="padding-right:5px"></i>Create',
                             ['type' => 'submit', 'class' => 'btn btn-success float-left'] )
                         }}
                 </div>

@@ -47,15 +47,17 @@
                     <!-- radio -->
                     <div class="form-group">
                         <div class="form-check">
-                          {!! Form::radio('status', true, true) !!}
-                          {!! Form::label('label3', 'Open') !!}
-                          {!! Form::radio('status', false) !!}
-                          {!! Form::label('label4', 'Hide') !!}
+                            <label class="radio" style="padding-right:15px">
+                                {!! Form::radio('status', true, true) !!} Show
+                            </label>
+                            <label class="radio">
+                                {!! Form::radio('status', true) !!} Hide
+                            </label>
                         </div>
                     </div>
                     <div class="col-12">
                         {{ Form::button(
-                            '<i class="fa fa-check-circle"></i>Create',
+                            '<i class="fa fa-check-circle" style="padding-right:5px" ></i>Create',
                             ['type' => 'submit', 'class' => 'btn btn-success float-left'] )
                         }}
                     </div>

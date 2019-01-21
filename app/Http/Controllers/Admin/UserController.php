@@ -28,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.register');
     }
 
     /**
@@ -39,7 +39,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this -> validate($request,[
+            'username' => 'required|unique:categories',
+            'displayname' => 'required|max:250',
+            'password' => 'required|unique:categories',
+            'retypepassword' => 'required|max:250',
+            'email' => 'required|email'
+        ],[
+            'username.required' => 'The Category Name field is required',
+            'username.unique' => 'The Category Name field already exist',
+
+            'describe.required' => 'The Describe field is required',
+            'describe.max' => 'Maximum of 250 characters',
+        ]);
     }
 
     /**

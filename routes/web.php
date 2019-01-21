@@ -12,3 +12,10 @@ Route::group(['prefix'=>'admin/'],function(){
     Route::resource('/users','Admin\UserController');
 });
 
+Route::get('/test', function () {
+    return view('client/layouts/master');
+});
+Route::get('/register', function(){
+    return view('client/register');
+});
+

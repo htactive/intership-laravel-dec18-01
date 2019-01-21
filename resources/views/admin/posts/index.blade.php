@@ -15,7 +15,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-            <a href="{{route('posts.create')}}" class="btn btn-success">Thêm Post</a>
+            <a href="{{route('posts.create')}}" class="btn btn-success">Add Post</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -49,9 +49,9 @@
                           </td>
                           <td>
                             @if($post->status)
-                                <span class="badge badge-success p5">Hiện</span>
+                                <span class="badge badge-success p5">Show</span>
                             @else
-                                <span class="badge badge-default p5">Ẩn</span>
+                                <span class="badge badge-default p5">Hide</span>
                             @endif
                           </td>
                           <td>
