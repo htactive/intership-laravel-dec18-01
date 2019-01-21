@@ -94,6 +94,23 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
+    public function status($id)
+    {
+        $user = User::find($id);
+        if($user->status == true)
+        {
+            $user->status = false;
+        }
+        else{
+            $user->status = true;
+        }
+        $user->save();
+        $notification = array(
+            'message' => 'Change status successful!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('users.index')->with($notification);
+    }
     public function destroy(User $user)
     {
         if($user->posts->count() > 0){

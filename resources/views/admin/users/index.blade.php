@@ -50,10 +50,17 @@
                           </td>
                           <td>
                             @if($user->status)
-                                <span class="badge badge-success p5">Open</span>
+                                <a href="{{route('users.status', $user->id)}}" data-id="{{$user->id}}" class="status badge badge-success p-10">Show</a>
                             @else
-                                <span class="badge badge-default p5">Block</span>
+                                <a href="{{route('users.status', $user->id)}}" data-id="{{$user->id}}" class="status badge badge-danger p-10">Hide</a>
                             @endif
+
+                            {!!Form::open([
+                                        'route' => ['users.status', $user->id],
+                                        'id' => 'status-form-' . $user->id
+                                    ])
+                            !!}
+                            {!! Form::close() !!}
                           </td>
                           <td>
                             <a href="{{route('users.show', $user->id)}}" class="btn btn-info">

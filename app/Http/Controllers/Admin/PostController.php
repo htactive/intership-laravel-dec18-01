@@ -119,15 +119,15 @@ class PostController extends Controller
      */
     public function status($id)
     {
-        $postn = Post::find($id);
-        if($postn->status == true)
+        $post = Post::find($id);
+        if($post->status == true)
         {
-            $postn->status = false;
+            $post->status = false;
         }
         else{
-            $postn->status = true;
+            $post->status = true;
         }
-        $postn->save();
+        $post->save();
         $notification = array(
             'message' => 'Change status successful!',
             'alert-type' => 'success'

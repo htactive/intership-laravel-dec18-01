@@ -11,6 +11,7 @@ Route::group(['prefix'=>'admin/'],function(){
     Route::resource('/posts','Admin\PostController');
     Route::post('/posts/status/{id}', 'Admin\PostController@status')->name('posts.status');
     Route::resource('/users','Admin\UserController');
+    Route::post('/users/status/{id}', 'Admin\UserController@status')->name('users.status');
 });
 
 Route::get('/test', function () {
