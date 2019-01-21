@@ -68,14 +68,12 @@ class PostController extends Controller
             $post['status'] = false;
         }
 
-
         $post -> save();
 
         $notification = array(
             'message' => 'Add Post successful!',
             'alert-type' => 'success'
         );
-
         return redirect()->route('posts.index')->with($notification);
     }
 
@@ -121,6 +119,11 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        Post::where('id', $post->id)->delete();
+        $notification = array(
+            'message' => 'Delete post successful!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('posts.index')->with($notification);
     }
 }

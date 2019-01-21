@@ -128,7 +128,6 @@ class CategoryController extends Controller
             'message' => 'Delete category successful!',
             'alert-type' => 'success'
         );
-
         return redirect()->route('categories.index')->with($notification);
     }
 }
