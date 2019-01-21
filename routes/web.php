@@ -8,6 +8,7 @@ Route::group(['prefix'=>'admin/'],function(){
         return redirect(route('dashboard'));
     });
     Route::resource('/categories','Admin\CategoryController');
+    Route::post('/categories/status/{id}', 'Admin\CategoryController@status')->name('categories.status');
     Route::resource('/posts','Admin\PostController');
     Route::post('/posts/status/{id}', 'Admin\PostController@status')->name('posts.status');
     Route::resource('/users','Admin\UserController');

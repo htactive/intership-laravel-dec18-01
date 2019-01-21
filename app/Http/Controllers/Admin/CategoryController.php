@@ -114,6 +114,23 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
+    public function status($id)
+    {
+        $category = Category::find($id);
+        if($category->status == true)
+        {
+            $category->status = false;
+        }
+        else{
+            $category->status = true;
+        }
+        $category->save();
+        $notification = array(
+            'message' => 'Change status successful!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('categories.index')->with($notification);
+    }
     public function destroy(Category $category)
     {
         if($category->posts->count() > 0){

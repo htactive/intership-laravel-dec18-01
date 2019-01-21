@@ -45,10 +45,17 @@
                           </td>
                           <td>
                             @if($category->status)
-                                <span class="badge badge-success p5">Hiện</span>
+                                <a href="{{route('categories.status', $category->id)}}" data-id="{{$category->id}}" class="status badge badge-success p-10">Show</a>
                             @else
-                                <span class="badge badge-default p5">Ẩn</span>
+                                <a href="{{route('categories.status', $category->id)}}" data-id="{{$category->id}}" class="status badge badge-danger p-10">Hide</a>
                             @endif
+
+                            {!!Form::open([
+                                        'route' => ['categories.status', $category->id],
+                                        'id' => 'status-form-' . $category->id
+                                    ])
+                            !!}
+                            {!! Form::close() !!}
                           </td>
                           <td>
                             <a href="{{route('categories.show', $category->id)}}" class="btn btn-info">
