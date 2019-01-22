@@ -62,7 +62,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        $posts = $user->posts;
+        return view('admin.users.show',['user'=>$user,'posts'=>$posts]);
     }
 
     /**

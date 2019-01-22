@@ -9,7 +9,7 @@
             <a href="{{route('dashboard')}}"><i class="fa fa-home fa-lg"></i></a>
         </li>
         <li class="breadcrumb-item">
-            <a href="{{route('categories.index')}}">Categoriess</a>
+            <a href="{{route('users.index')}}">Users</a>
         </li>
         <li class="breadcrumb-item">Detail</li>
     </ul>
@@ -19,8 +19,8 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{route('categories.index')}}" class="btn btn-secondary">Back</a>
-                    <a href="{{route('categories.edit',$category->id)}}" class="btn btn-warning" >Edit</a>
+                    <a href="{{route('users.index')}}" class="btn btn-secondary">Back</a>
+                    <a href="{{route('users.edit',$user->id)}}" class="btn btn-warning" >Edit</a>
                 </div>
             </div>
                 <!-- Main content -->
@@ -29,32 +29,49 @@
                 <div class="row">
                     <div class="col-12">
                         <h5>
-                            <strong>Category ID: </strong>{{ $category->id}}
-                            <small class="float-right">Date created: {{ $category->created_at}}</small>
-                        </h5>
-                        <h5>
-                            <strong>Category Name: </strong>{{ $category->categoryname }}
+                            <strong>User ID: </strong>{{ $user->id}}
+                            <small class="float-right">Date created: {{ $user->created_at}}</small>
                         </h5>
                     </div>
                         <!-- /.col -->
                 </div>
-                    <!-- info row -->
+                <!-- info row -->
                 <div class="row invoice-info">
                     <div class="col-sm-4 invoice-col">
-                        <strong>Describe</strong><br>
-                        {{ $category->describe }}
+                        <strong>Display Name</strong><br>{{ $user->displayname }}
                     </div>
                     <!-- /.col -->
                     <div class="col-sm-4 invoice-col">
                         <address>
-                            <strong>Number of posts of the category</strong><br>
-                            {{ $category->posts->count() }}
+                            <strong>Username</strong><br>
+                            {{ $user->username }}
+                        </address>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-4 invoice-col">
+                        <strong>Email</strong><br>
+                        {{ $user->email }}
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+
+                <div class="row invoice-info">
+                    <div class="col-sm-4 invoice-col">
+                        <strong>Role</strong><br>
+                        {{ $user->role }}
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-4 invoice-col">
+                        <address>
+                            <strong>Number of posts</strong><br>
+                            {{ $user->posts->count() }}
                         </address>
                     </div>
                     <!-- /.col -->
                     <div class="col-sm-4 invoice-col">
                         <strong>Status</strong><br>
-                        @if($category->status)
+                        @if($user->status)
                             <span class="status badge badge-success p-10">Show</span>
                         @else
                             <span class="status badge badge-danger p-10">Hide</span>
@@ -73,9 +90,11 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Title</th>
+                                <th>Category Name</th>
                                 <th>Like</th>
                                 <th>Time Created</th>
                                 <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -86,6 +105,9 @@
                                     {{ $post->title }}
                                 </td>
                                 <td>
+                                    {{ $post->category->categoryname }}
+                                </td>
+                                <td>
                                     {{ $post->like }}
                                 </td>
                                 <td>
@@ -93,10 +115,15 @@
                                 </td>
                                 <td>
                                     @if($post->status)
-                                        <span class="badge badge-success p5">Hiện</span>
+                                        <span class="status badge badge-success p-10">Show</span>
                                     @else
-                                        <span class="badge badge-default p5">Ẩn</span>
+                                        <span class="status badge badge-danger p-10">Hide</span>
                                     @endif
+                                </td>
+                                <td>
+                                    <a href="{{route('posts.show', $post->id)}}" class="btn btn-info">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
                                 </td>
                             </tr>
                             @endforeach
@@ -107,6 +134,7 @@
         </div><!-- /.col -->
     </div><!-- /.row -->
 </div><!-- /.container-fluid -->
+
 @endsection
 
 @push('styles')

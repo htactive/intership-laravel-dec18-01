@@ -72,10 +72,13 @@
                             <a data-id={{$user->id}} href="{{ route('users.destroy', $user->id) }}" class="btn btn-danger delete">
                                 <i class="fa fa-trash"></i>
                             </a>
-                            <form id="delete-form-{{$user->id}}" action="{{route('users.destroy', $user->id)}}" method="post">
-                                @csrf
-                                @method('delete')
-                            </form>
+                            {!!Form::open([
+                                        'route' => ['users.destroy', $user->id],
+                                        'id' => 'delete-form-' . $user->id,
+                                        'method' => 'DELETE'
+                                    ])
+                            !!}
+                            {!! Form::close() !!}
                           </td>
                         </tr>
                     @endforeach
