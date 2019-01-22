@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -85,7 +86,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('admin.posts.show',['post'=>$post]);
     }
 
     /**
@@ -134,6 +135,7 @@ class PostController extends Controller
         );
         return redirect()->route('posts.index')->with($notification);
     }
+
     public function destroy(Post $post)
     {
         Post::where('id', $post->id)->delete();
