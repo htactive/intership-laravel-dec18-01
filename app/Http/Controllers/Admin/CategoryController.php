@@ -48,17 +48,14 @@ class CategoryController extends Controller
             'describe.required' => 'The Describe field is required',
             'describe.max' => 'Maximum of 250 characters',
         ]);
-        $categoryname = $request['categoryname'];
-        $describe = $request['describe'];
-        $status = $request['status'];
 
         $cate = new Category;
 
-        $cate['categoryname'] = $categoryname;
-        $cate['describe'] = $describe;
-        $cate['slug'] = str_slug($categoryname);
-        if($status == true){
-            $cate['status'] = $status;
+        $cate['categoryname'] = $request['categoryname'];
+        $cate['describe'] = $request['describe'];
+        $cate['slug'] = str_slug($request['categoryname']);
+        if($request['status'] == true){
+            $cate['status'] = $request['status'];
         }else {
             $cate['status'] = false;
         }
@@ -81,8 +78,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        $posts = $category->posts;
-        return view('admin.categories.show',['posts'=>$posts,'category'=>$category]);
+
+        return view('admin.categories.show',['category'=>$category]);
     }
 
     /**
@@ -93,7 +90,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit',['category'=>$category]);
     }
 
     /**
@@ -103,9 +100,63 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+        if($request->status == null){ $request->status=0; }
+        if($category->categoryname == $request->categoryname && $category->describe == $request->describe && $category->status == $request->status )
+        {
+            $notification = array(
+                'message' => 'Date category no change!',
+                'alert-type' => 'info'
+            );
+            return redirect()->route('categories.index')->with($notification);
+        }
+        if($category->categoryname == $request->categoryname)
+        {
+            $this->validate($request,[
+                'categoryname' => 'required',
+                'describe' => 'required|max:250',
+            ],[
+                'categoryname.required' => 'The Category Name field is required',
+
+                'describe.required' => 'The Describe field is required',
+                'describe.max' => 'Maximum of 250 characters',
+            ]);
+            $category->categoryname = $request['categoryname'];
+            $category->describe = $request['describe'];
+            $category->status = $request->status;
+            $category->save();
+            $notification = array(
+                'message' => 'Change category successful!!',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('categories.index')->with($notification);
+        }
+        else {
+            $this->validate($request,[
+                'categoryname' => 'required|unique:categories',
+                'describe' => 'required|max:250',
+            ],[
+                'categoryname.required' => 'The Category Name field is required',
+                'categoryname.unique' => 'The Category Name field already exist',
+
+                'describe.required' => 'The Describe field is required',
+                'describe.max' => 'Maximum of 250 characters',
+            ]);
+            $category->categoryname = $request['categoryname'];
+            $category->describe = $request['describe'];
+            $category->status = $request->status;
+            $category->save();
+            $notification = array(
+                'message' => 'Change category successful!!',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('categories.index')->with($notification);
+        }
+
+
+
     }
 
     /**

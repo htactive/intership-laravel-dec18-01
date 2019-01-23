@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('title', 'Create Category')
+@section('title', 'Edit Category')
 
 @section('content')
 <div class="app-title">
@@ -11,7 +11,7 @@
         <li class="breadcrumb-item">
             <a href="{{route('categories.index')}}">Categories</a>
         </li>
-        <li class="breadcrumb-item">Create Category</li>
+        <li class="breadcrumb-item">Edit Category</li>
     </ul>
 </div>
 <div class="row">
@@ -29,23 +29,24 @@
             @endif
             <div class="card card-warning">
                 <div class="card-header">
-                    <h3 class="card-title">Create Category</h3>
+                    <h3 class="card-title">Edit Category</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    {!! Form::open(['route' => 'categories.store']) !!}
+                    {!! Form::open(['route' => ['categories.update',$category->id], 'method'=>'PUT']) !!}
                     <!-- text input -->
                     <div class="form-group">
                         {!! Form::label('label1', 'Category Name', ['class' => 'control-label']) !!}
-                        {!! Form::text('categoryname', '', ['class' => 'form-control']) !!}
+                        {!! Form::text('categoryname', $category->categoryname, ['class' => 'form-control']) !!}
                     </div>
                     <!-- textarea -->
                     <div class="form-group">
                         {!! Form::label('label2', 'Describe', ['class' => 'control-label']) !!}
-                        {!! Form::textarea('describe', '', ['class' => 'form-control', 'rows' => 3]) !!}
+                        {!! Form::textarea('describe', $category->describe, ['class' => 'form-control', 'rows' => 3]) !!}
                     </div>
                     <!-- radio -->
                     <div class="form-group">
+                    @if($category->status)
                         <div class="form-check">
                             <label class="radio" style="padding-right:15px">
                                 {!! Form::radio('status', true, true) !!} Show
@@ -54,10 +55,21 @@
                                 {!! Form::radio('status', false) !!} Hide
                             </label>
                         </div>
+                    @else
+                        <div class="form-check">
+                            <label class="radio" style="padding-right:15px">
+                                {!! Form::radio('status', true) !!} Show
+                            </label>
+                            <label class="radio">
+                                {!! Form::radio('status', false, true) !!} Hide
+                            </label>
+                        </div>
+                    @endif
+
                     </div>
                     <div class="col-12">
                         {{ Form::button(
-                            '<i class="fa fa-check-circle" style="padding-right:5px" ></i>Create',
+                            '<i class="fa fa-check-circle" style="padding-right:5px" ></i>Update',
                             ['type' => 'submit', 'class' => 'btn btn-success float-left'] )
                         }}
                     </div>

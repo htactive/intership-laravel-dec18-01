@@ -43,7 +43,7 @@ class PostController extends Controller
     {
         $this -> validate($request,[
             'title' => 'required|unique:posts',
-            'content' => 'required|max:1000',
+            'content' => 'required|max:10000',
         ],[
             'title.required' => 'The Title field is required',
             'title.unique' => 'The Title field already exist',
