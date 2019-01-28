@@ -44,24 +44,17 @@ class PostController extends Controller
         $this -> validate($request,[
             'title' => 'required|unique:posts',
             'content' => 'required|max:10000',
-        ],[
-            'title.required' => 'The Title field is required',
-            'title.unique' => 'The Title field already exist',
-
-            'content.required' => 'The Content field is required',
-            'content.max' => 'Maximum of 250 characters',
+            'introduce' => 'required|max:250',
         ]);
 
-        $title = $request['title'];
-        $category = $request['category'];
-        $content = $request['content'];
         $status = $request['status'];
 
         $post = new Post;
 
-        $post['title'] = $title;
-        $post['content'] = $content;
-        $post['category_id'] = $category;
+        $post['title'] = $request['title'];
+        $post['content'] = $request['content'];
+        $post['introduce'] =$request['introduce'];
+        $post['category_id'] = $request['category'];
         $post['user_id'] = 1;
         if($status == true){
             $post['status'] = $status;

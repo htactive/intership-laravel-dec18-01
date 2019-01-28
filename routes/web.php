@@ -1,7 +1,8 @@
 <?php
 Route::group(['prefix'=>'/'],function(){
+    Route::get('index', 'Client\HomeController@index')->name('home');
     Route::get('', function () {
-        return view('client/layouts/master');
+        return redirect(route('home'));
     });
     Route::post('', 'Admin\AdminController@register')->name('register');
 });

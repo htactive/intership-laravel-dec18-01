@@ -21,7 +21,8 @@ class PostsTableSeeder extends Seeder
                 'user_id'=> $i,
                 'category_id'=> $i,
                 'title' => 'tieu de'.$i,
-                'content' => str_random(10),
+                'content' => str_random(250),
+                'introduce' => str_random(5).' '.str_random(5).' '.str_random(5),
                 'created_at' => Date(now()),
             ]);
         }

@@ -36,6 +36,10 @@
                     {!! Form::label('label2', 'Category', ['class' => 'control-label']) !!}
                     {!! Form::select('category', $categories->pluck('categoryname', 'id'), null,['class' => 'form-control select2']) !!}
                 </div>
+                <div class="form-group" >
+                    {!! Form::label('label1', 'introduce', ['class' => 'control-label']) !!}
+                    {!! Form::text('introduce', '', ['class' => 'form-control']) !!}
+                </div>
                 <div class='form-group'>
                     {!! Form::label('label1', 'Content', ['class' => 'control-label']) !!}
                     {!! Form::textarea('content', null, ['id' => 'editor']) !!}

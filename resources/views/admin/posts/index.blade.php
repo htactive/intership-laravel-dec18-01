@@ -24,6 +24,8 @@
                     <tr>
                       <th>ID</th>
                       <th>Title</th>
+                      <th>Introduce</th>
+                      <th>Comment</th>
                       <th>Like</th>
                       <th>Time Created</th>
                       <th>Caterogy</th>
@@ -37,6 +39,12 @@
                           <td>{{ $post->id }}</td>
                           <td>
                             {{ $post->title }}
+                          </td>
+                          <td>
+                            {{ $post->introduce }}
+                          </td>
+                          <td>
+                            {{ $post->comments->count() }}
                           </td>
                           <td>
                             {{ $post->like }}

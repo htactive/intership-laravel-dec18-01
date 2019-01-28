@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,55 +18,57 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     @stack('styles')
 </head>
+
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
-    <!-- Navbar -->
-    @include('admin.layouts.elements.hearder')
-    <!-- /.navbar -->
+    <div class="wrapper">
+        <!-- Navbar -->
+        @include('admin.layouts.elements.hearder')
+        <!-- /.navbar -->
 
-    <!-- Main Sidebar Container -->
-    @include('admin.layouts.elements.sidebar')
+        <!-- Main Sidebar Container -->
+        @include('admin.layouts.elements.sidebar')
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
 
-        <!-- Main content -->
-        @yield('content')
-        <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
-
-    <!-- Main Footer -->
-    <footer class="main-footer">
-        <!-- To the right -->
-        <div class="float-right d-none d-sm-block-down">
-            Anything you want
+            <!-- Main content -->
+            @yield('content')
+            <!-- /.content -->
         </div>
-        <!-- Default to the left -->
-        <strong>Copyright & copy: 2018 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
-</div>
-<!-- ./wrapper -->
+        <!-- /.content-wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
 
-<!-- jQuery -->
-<script src="{{asset('backend/plugins/jquery/jquery.min.js')}}"></script>
-<!-- Bootstrap -->
-<script src="{{asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<!-- AdminLTE -->
-<script src="{{asset('backend/dist/js/adminlte.js')}}"></script>
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <!-- To the right -->
+            <div class="float-right d-none d-sm-block-down">
+                Anything you want
+            </div>
+            <!-- Default to the left -->
+            <strong>Copyright & copy: 2018 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+        </footer>
+    </div>
+    <!-- ./wrapper -->
 
-<!-- OPTIONAL SCRIPTS -->
-<script src="{{asset('backend/plugins/chart.js/Chart.min.js')}}"></script>
-<script src="{{asset('backend/dist/js/demo.js')}}"></script>
-<script src="{{asset('backend/dist/js/pages/dashboard3.js')}}"></script>
-@stack('scripts')
+    <!-- REQUIRED SCRIPTS -->
+
+    <!-- jQuery -->
+    <script src="{{asset('backend/plugins/jquery/jquery.min.js')}}"></script>
+    <!-- Bootstrap -->
+    <script src="{{asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <!-- AdminLTE -->
+    <script src="{{asset('backend/dist/js/adminlte.js')}}"></script>
+
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="{{asset('backend/plugins/chart.js/Chart.min.js')}}"></script>
+    <script src="{{asset('backend/dist/js/demo.js')}}"></script>
+    <script src="{{asset('backend/dist/js/pages/dashboard3.js')}}"></script>
+    @stack('scripts')
 </body>
+
 </html>
