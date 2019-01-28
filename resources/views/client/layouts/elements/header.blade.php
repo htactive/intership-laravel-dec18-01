@@ -1,152 +1,172 @@
-<section id="header_section_wrapper" class="header_section_wrapper">
-    <div class="container">
-        <div class="header-section">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="left_section">
-                        <span class="date">
-                            Sunday .
-                        </span>
-                        <!-- Date -->
-                        <span class="time">
-                            09 August . 2016
-                        </span>
-                        <!-- Time -->
-                        <div class="social">
-                            <a class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a>
-                            <!--Twitter-->
-                            <a class="icons-sm tw-ic"><i class="fa fa-twitter"></i></a>
-                            <!--Google +-->
-                            <a class="icons-sm inst-ic"><i class="fa fa-instagram"> </i></a>
-                            <!--Linkedin-->
-                            <a class="icons-sm tmb-ic"><i class="fa fa-tumblr"> </i></a>
-                            <!--Pinterest-->
-                            <a class="icons-sm rss-ic"><i class="fa fa-rss"> </i></a>
-                        </div>
-                        <!-- Top Social Section -->
-                    </div>
-                    <!-- Left Header Section -->
-                </div>
-                <div class="col-md-4">
-                    <div class="logo">
-                        <a href="index.html"><img src="{{asset('frontend/assets/img/logo.png')}}" alt="Tech NewsLogo"></a>
-                    </div>
-                    <!-- Logo Section -->
-                </div>
-                <div class="col-md-4">
-                    <div class="right_section">
-                        <ul class="nav navbar-nav">
-                            <li><a href="#">Login</a></li>
-                            <li><a href="register">Register</a></li>
-                            <li class="dropdown lang">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">En <i
-                                        class="fa fa-angle-down"></i></button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a href="#">Bn</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <!-- Language Section -->
+<header class="header-area">
 
-                        <ul class="nav-cta hidden-xs">
-                            <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><i
-                                    class="fa fa-search"></i></a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <div class="head-search">
-                                            <form role="form">
-                                                <!-- Input Group -->
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control"
-                                                           placeholder="Type Something"> <span class="input-group-btn">
-                                                                            <button type="submit"
-                                                                                    class="btn btn-primary">Search
-                                                                            </button>
-                                                                        </span></div>
-                                            </form>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <!-- Search Section -->
+    <!-- Top Header Area -->
+    <div class="top-header">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <!-- Breaking News Area -->
+                <div class="col-12 col-sm-8">
+                    <div class="breaking-news-area">
+                        <div id="breakingNewsTicker" class="ticker">
+                            <ul>
+                                <li><a href="#">Hello World!</a></li>
+                                <li><a href="#">Hello Universe!</a></li>
+                                <li><a href="#">Hello Original!</a></li>
+                                <li><a href="#">Hello Earth!</a></li>
+                                <li><a href="#">Hello Colorlib!</a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <!-- Right Header Section -->
+                </div>
+                <!-- Top Social Area -->
+                <div class="col-12 col-sm-4">
+                    <div class="top-social-area">
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i
+                                class="fa fa-pinterest" aria-hidden="true"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i
+                                class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i
+                                class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Dribbble"><i
+                                class="fa fa-dribbble" aria-hidden="true"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Behance"><i
+                                class="fa fa-behance" aria-hidden="true"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i
+                                class="fa fa-linkedin" aria-hidden="true"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Header Section -->
-
-        <div class="navigation-section">
-            <nav class="navbar m-menu navbar-default">
-                <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                                data-target="#navbar-collapse-1"><span class="sr-only">Toggle navigation</span> <span
-                                class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
-                        </button>
-                    </div>
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="#navbar-collapse-1">
-                        <ul class="nav navbar-nav main-nav">
-                            <li class="active"><a href="index.html">News</a></li>
-                            <li><a href="category.html">Mobile</a></li>
-                            <li><a href="blog.html">Tablet</a></li>
-                            <li><a href="blog.html">Gadgets</a></li>
-                            <li><a href="blog.html">Camera</a></li>
-                            <li><a href="blog.html">Design</a></li>
-                            <li class="dropdown m-menu-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">More
-                                <span><i class="fa fa-angle-down"></i></span></a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <div class="m-menu-content">
-                                            <ul class="col-sm-3">
-                                                <li class="dropdown-header">Widget Haeder</li>
-                                                <li><a href="#">Awesome Features</a></li>
-                                                <li><a href="#">Clean Interface</a></li>
-                                                <li><a href="#">Available Possibilities</a></li>
-                                                <li><a href="#">Responsive Design</a></li>
-                                                <li><a href="#">Pixel Perfect Graphics</a></li>
-                                            </ul>
-                                            <ul class="col-sm-3">
-                                                <li class="dropdown-header">Widget Haeder</li>
-                                                <li><a href="#">Awesome Features</a></li>
-                                                <li><a href="#">Clean Interface</a></li>
-                                                <li><a href="#">Available Possibilities</a></li>
-                                                <li><a href="#">Responsive Design</a></li>
-                                                <li><a href="#">Pixel Perfect Graphics</a></li>
-                                            </ul>
-                                            <ul class="col-sm-3">
-                                                <li class="dropdown-header">Widget Haeder</li>
-                                                <li><a href="#">Awesome Features</a></li>
-                                                <li><a href="#">Clean Interface</a></li>
-                                                <li><a href="#">Available Possibilities</a></li>
-                                                <li><a href="#">Responsive Design</a></li>
-                                                <li><a href="#">Pixel Perfect Graphics</a></li>
-                                            </ul>
-                                            <ul class="col-sm-3">
-                                                <li class="dropdown-header">Widget Haeder</li>
-                                                <li><a href="#">Awesome Features</a></li>
-                                                <li><a href="#">Clean Interface</a></li>
-                                                <li><a href="#">Available Possibilities</a></li>
-                                                <li><a href="#">Responsive Design</a></li>
-                                                <li><a href="#">Pixel Perfect Graphics</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- .navbar-collapse -->
-                </div>
-                <!-- .container -->
-            </nav>
-            <!-- .nav -->
-        </div>
-        <!-- .navigation-section -->
     </div>
-    <!-- .container -->
-</section>
+
+    <!-- Logo Area -->
+    <div class="logo-area text-center">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <a href="index.html" class="original-logo"><img src="{{asset('frontend/img/core-img/logo.png')}}"
+                            alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nav Area -->
+    <div class="original-nav-area" id="stickyNav">
+        <div class="classy-nav-container breakpoint-off">
+            <div class="container">
+                <!-- Classy Menu -->
+                <nav class="classy-navbar justify-content-between">
+
+                    <!-- Subscribe btn -->
+
+                    <div class="btn">
+                        <a href="#" class="btn subscribe-btn" data-toggle="modal" data-target="#login">Login</a>
+                        <a href="#" class="btn subscribe-btn" data-toggle="modal" data-target="#register">Register</a>
+                    </div>
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu" id="originalNav">
+                        <!-- close btn -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li><a href="http://127.0.0.1:8000">Home</a></li>
+                                <li><a href="#">Pages</a>
+                                    <ul class="dropdown">
+                                        <li><a href="http://127.0.0.1:8000/">Home</a></li>
+                                        <li><a href="about-us.html">About Us</a></li>
+                                        <li><a href="single-post.html">Single Post</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Catagory</a>
+                                    <ul class="dropdown">
+                                        <li><a href="#">Catagory 1</a></li>
+                                        <li><a href="#">Catagory 1</a></li>
+                                        <li><a href="#">Catagory 1</a>
+                                            <ul class="dropdown">
+                                                <li><a href="#">Catagory 2</a></li>
+                                                <li><a href="#">Catagory 2</a></li>
+                                                <li><a href="#">Catagory 2</a>
+                                                    <ul class="dropdown">
+                                                        <li><a href="#">Catagory 3</a></li>
+                                                        <li><a href="#">Catagory 3</a></li>
+                                                        <li><a href="#">Catagory 3</a></li>
+                                                        <li><a href="#">Catagory 3</a></li>
+                                                        <li><a href="#">Catagory 3</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">Catagory 2</a></li>
+                                                <li><a href="#">Catagory 2</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Catagory 1</a></li>
+                                        <li><a href="#">Catagory 1</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="about-us.html">About Us</a></li>
+                                <li><a href="#">Megamenu</a>
+                                    <div class="megamenu">
+                                        <ul class="single-mega cn-col-4">
+                                            <li class="title">Headline 1</li>
+                                            <li><a href="#">Mega Menu Item 1</a></li>
+                                            <li><a href="#">Mega Menu Item 2</a></li>
+                                            <li><a href="#">Mega Menu Item 3</a></li>
+                                            <li><a href="#">Mega Menu Item 4</a></li>
+                                            <li><a href="#">Mega Menu Item 5</a></li>
+                                        </ul>
+                                        <ul class="single-mega cn-col-4">
+                                            <li class="title">Headline 2</li>
+                                            <li><a href="#">Mega Menu Item 1</a></li>
+                                            <li><a href="#">Mega Menu Item 2</a></li>
+                                            <li><a href="#">Mega Menu Item 3</a></li>
+                                            <li><a href="#">Mega Menu Item 4</a></li>
+                                            <li><a href="#">Mega Menu Item 5</a></li>
+                                        </ul>
+                                        <ul class="single-mega cn-col-4">
+                                            <li class="title">Headline 3</li>
+                                            <li><a href="#">Mega Menu Item 1</a></li>
+                                            <li><a href="#">Mega Menu Item 2</a></li>
+                                            <li><a href="#">Mega Menu Item 3</a></li>
+                                            <li><a href="#">Mega Menu Item 4</a></li>
+                                            <li><a href="#">Mega Menu Item 5</a></li>
+                                        </ul>
+                                        <ul class="single-mega cn-col-4">
+                                            <li class="title">Headline 4</li>
+                                            <li><a href="#">Mega Menu Item 1</a></li>
+                                            <li><a href="#">Mega Menu Item 2</a></li>
+                                            <li><a href="#">Mega Menu Item 3</a></li>
+                                            <li><a href="#">Mega Menu Item 4</a></li>
+                                            <li><a href="#">Mega Menu Item 5</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+
+                            <!-- Search Form  -->
+                            <div id="search-wrapper">
+                                <form action="#">
+                                    <input type="text" id="search" placeholder="Search something...">
+                                    <div id="close-icon"></div>
+                                    <input class="d-none" type="submit" value="">
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

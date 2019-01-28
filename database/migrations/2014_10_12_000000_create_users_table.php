@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('displayname');
             $table->boolean('status')->default(true);
             $table->string('role')->default('user');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

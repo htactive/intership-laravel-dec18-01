@@ -1,6 +1,9 @@
 <?php
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix'=>'/'],function(){
+    Route::get('', function () {
+        return view('client/layouts/master');
+    });
+    Route::post('', 'Admin\AdminController@register')->name('register');
 });
 Route::group(['prefix'=>'admin/'],function(){
     Route::get('dashboard', 'Admin\DashboardController@index')->name('dashboard');
@@ -15,10 +18,5 @@ Route::group(['prefix'=>'admin/'],function(){
     Route::post('/users/status/{id}', 'Admin\UserController@status')->name('users.status');
 });
 
-Route::get('/test', function () {
-    return view('client/layouts/master');
-});
-Route::get('/register', function(){
-    return view('client/register');
-});
+
 
