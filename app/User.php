@@ -13,4 +13,8 @@ class User extends Model
     {
         return $this->hasMany('App\Post');
     }
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 }

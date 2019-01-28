@@ -129,6 +129,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $posts->links() }}
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.col -->

@@ -5,6 +5,7 @@ Route::group(['prefix'=>'/'],function(){
         return redirect(route('home'));
     });
     Route::post('', 'Admin\AdminController@register')->name('register');
+    Route::get('post/{id}','Client\HomeController@show')->name('postdetail');
 });
 Route::group(['prefix'=>'admin/'],function(){
     Route::get('dashboard', 'Admin\DashboardController@index')->name('dashboard');

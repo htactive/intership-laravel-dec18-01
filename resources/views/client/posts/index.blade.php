@@ -11,7 +11,7 @@
             <div class="single-blog-content mt-50">
                 <div class="line"></div>
                 <a href="#" class="post-tag">{{ $post->category->categoryname }}</a>
-                <h4><a href="#" class="post-headline">{{ $post->title}}</a></h4>
+                <h4><a href="{{route('postdetail', $post->id)}}" class="post-headline">{{ $post->title}}</a></h4>
                 <p>{{$post->introduce}}</p>
                 <div class="post-meta">
                     <p>By <a href="#">{{ $post->user->displayname }}</a></p>

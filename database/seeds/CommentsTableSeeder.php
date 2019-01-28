@@ -20,7 +20,7 @@ class CommentsTableSeeder extends Seeder
             DB::table('comments')->insert([
                 'user_id' => $i,
                 'post_id' => $i,
-                'content' => str_random(60),
+                'content' => str_random(5).' '.str_random(5).' '.str_random(5).' '.str_random(5).' '.str_random(5).' ',
                 'created_at' => Date(now()),
             ]);
         }

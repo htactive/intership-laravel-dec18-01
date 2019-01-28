@@ -29,8 +29,8 @@
                 <div class="row">
                     <div class="col-12">
                         <h5>
-                            <strong>Post ID: </strong>{{ $post->id}}
-                            <small class="float-right">Date created: {{ $post->created_at}}</small>
+                            <strong>Post ID: </strong>{{ $post->id }}
+                            <small class="float-right">Date created: {{ $post->created_at }}</small>
                         </h5>
                     </div>
                         <!-- /.col -->

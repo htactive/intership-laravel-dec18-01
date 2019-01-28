@@ -54,6 +54,7 @@ class PostController extends Controller
         $post['title'] = $request['title'];
         $post['content'] = $request['content'];
         $post['introduce'] =$request['introduce'];
+        $post['slug']= str_slug($request[$request['title']]);
         $post['category_id'] = $request['category'];
         $post['user_id'] = 1;
         if($status == true){

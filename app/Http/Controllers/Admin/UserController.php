@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\User;
+use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -49,8 +50,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        $posts = $user->posts;
-        return view('admin.users.show',['user'=>$user,'posts'=>$posts,'user'=>$user]);
+        $posts = Post::where('user_id',$user->id)->paginate(5);
+        return view('admin.users.show',['user'=>$user,'posts'=>$posts]);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Post;
+use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -50,7 +51,9 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        $comments = Comment::Where('post_id',$id);
+        return view('client.posts.show',['post'=>$post,'comments'=>$comments]);
     }
 
     /**
