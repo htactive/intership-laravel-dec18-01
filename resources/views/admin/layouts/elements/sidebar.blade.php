@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="#" class="brand-link">
         <img src="{{asset('backend/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
@@ -22,81 +22,58 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                <li class="nav-item has-treeview menu-open">
-                    <a href="#" class="nav-link active">
+                <li class="nav-item">
+                    <a href="{{route('dashboard')}}" class="nav-link {{Request::is('admin/dashboard*') ? 'active' : ''}}">
                         <i class="nav-icon fa fa-dashboard"></i>
-                        <p>
-                            Dashboard
-                            <i class="right fa fa-angle-left"></i>
-                        </p>
+                        <p class="text">Dashboard</p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="./index.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Dashboard v1</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Dashboard v2</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="./index3.html" class="nav-link active">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Dashboard v3</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-header">EXAMPLES</li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-envelope-o"></i>
-                        <p>
-                            Mailbox
-                            <i class="fa fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="pages/mailbox/mailbox.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Inbox</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/mailbox/compose.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Compose</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/mailbox/read-mail.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Read</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="{{route('categories.index')}}" class="nav-link {{Request::is('admin/categories*') ? 'active' : ''}}">
-                        <i class="nav-icon fa fa-circle-o text-danger"></i>
+                        <i class="nav-icon fa fa-circle-o ion-ios-pricetags-outline "></i>
                         <p class="text">Categories</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{route('posts.index')}}" class="nav-link {{Request::is('admin/posts*') ? 'active' : ''}}">
-                        <i class="nav-icon fa fa-circle-o text-danger"></i>
+                        <i class="nav-icon fa fa-circle-o ion-compose "></i>
                         <p class="text">Posts</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{route('users.index')}}" class="nav-link {{Request::is('admin/users*') ? 'active' : ''}}">
-                        <i class="nav-icon fa fa-circle-o text-danger"></i>
+                        <i class="nav-icon fa fa-circle-o ion-person"></i>
                         <p class="text">Users</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link {{Request::is('admin/advertisement*') ? 'active' : ''}}">
+                        <i class="nav-icon fa fa-circle-o ion-cash"></i>
+                        <p class="text">Advertisement</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link {{Request::is('admin/slider*') ? 'active' : ''}}">
+                        <i class="nav-icon fa fa-circle-o ion-images"></i>
+                        <p class="text">Slider</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link {{Request::is('admin/contact*') ? 'active' : ''}}">
+                        <i class="nav-icon fa fa-circle-o ion-ios-telephone"></i>
+                        <p class="text">Contact</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link {{Request::is('admin/setting*') ? 'active' : ''}}">
+                        <i class="nav-icon fa fa-circle-o ion-settings"></i>
+                        <p class="text">Setting</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link {{Request::is('admin/logout*') ? 'active' : ''}}">
+                        <i class="nav-icon fa fa-circle-o ion-power"></i>
+                        <p class="text">Logout</p>
                     </a>
                 </li>
             </ul>

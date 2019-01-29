@@ -73,9 +73,6 @@
                             <a href="{{route('posts.show', $post->id)}}" class="btn btn-info">
                                 <i class="fa fa-eye"></i>
                             </a>
-                            <a href="{{route('posts.edit', $post->id)}}" class="btn btn-warning">
-                                <i class="fa fa-pencil"></i>
-                            </a>
                             <a data-id={{$post->id}} href="{{ route('posts.destroy', $post->id) }}" class="btn btn-danger delete">
                                 <i class="fa fa-trash"></i>
                             </a>

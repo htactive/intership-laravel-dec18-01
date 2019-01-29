@@ -66,9 +66,6 @@
                             <a href="{{route('users.show', $user->id)}}" class="btn btn-info">
                                 <i class="fa fa-eye"></i>
                             </a>
-                            <a href="{{route('users.edit', $user->id)}}" class="btn btn-warning">
-                                <i class="fa fa-pencil"></i>
-                            </a>
                             <a data-id={{$user->id}} href="{{ route('users.destroy', $user->id) }}" class="btn btn-danger delete">
                                 <i class="fa fa-trash"></i>
                             </a>
